@@ -1,4 +1,4 @@
-## All the CTF competitions I have participated in, along with some of their solutions
+## All the CTF competitions I have participated in, along with some of their solutions <img src="https://raw.githubusercontent.com/DavideCaldirola/CTF-Writeups/main/!%20assets/explosion.gif" width="40px">
 
 [![GitHub Badge](https://img.shields.io/badge/-@DavideCaldirola-24292e?style=flat-square\&logo=github\&logoColor=white\&link=https://github.com/davidecaldirola)](https://github.com/davidecaldirola)
 [![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-SGDav-9fef00?logo=hackthebox&logoColor=black)](https://app.hackthebox.com/profile/1803159)
