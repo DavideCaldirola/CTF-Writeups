@@ -13,6 +13,7 @@
 • **UIUCTF 2025**  
 • **WHY2025**  
 • **ScriptCTF 2025**  
+• **SnakeCTF 2025 Quals** 
 
 [![GitHub Badge](https://img.shields.io/badge/-@DavideCaldirola-24292e?style=flat-square\&logo=github\&logoColor=white\&link=https://github.com/davidecaldirola)](https://github.com/davidecaldirola)
 [![Hack The Box](https://img.shields.io/badge/Hack%20The%20Box-SGDav-9fef00?logo=hackthebox&logoColor=black)](https://app.hackthebox.com/profile/1803159)
