@@ -24,4 +24,4 @@ We found a section where two major power lines converge. From there, we started 
 
 <img width="2824" height="1560" alt="image" src="https://github.com/user-attachments/assets/8a416939-7e37-42bf-9234-5d0206d8ece5" />
 
-Flag:**snakeCTF{Ov3r_9000_v0lts_e9253fd28b4c08e4}**
+Flag: **snakeCTF{Ov3r_9000_v0lts_e9253fd28b4c08e4}**
