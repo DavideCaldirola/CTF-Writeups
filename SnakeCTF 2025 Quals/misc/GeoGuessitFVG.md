@@ -1,6 +1,6 @@
 # GeoGuessitFVG
 
-> **Pwned with Redistan**, **[Writeup by: Redistan](https://github.com/RiccardoCherchi)**
+> **Found with Redistan**, **[Writeup by: Redistan](https://github.com/RiccardoCherchi)**
 
 <img width="611" height="532" alt="Image" src="https://github.com/user-attachments/assets/4146241b-6bdc-4ae1-9460-2355180d48a8" />
 
