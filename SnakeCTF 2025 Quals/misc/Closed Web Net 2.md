@@ -5,7 +5,7 @@
 
 <img width="1178" height="57" alt="Image" src="https://github.com/user-attachments/assets/c5c26952-8256-4d31-9725-e333a103a98d" />
 
-Following the challenge instructions, we need to use TLS on both ports due to infra requirements:
+As per the challenge instructions, TLS must be used on both ports to meet infrastructure requirements:
 
 ```
 ncat --ssl own-f3dee35882b2010a5437ebb95a645f09.closed-web-net-2.challs.snakectf.org 20000 
@@ -38,7 +38,7 @@ At which point a password should be sent back, calculated from the "password ope
 We need two codes: a **client** and a **script** to retrieve video frames from a camera.
 
 The **client**:
-- Manages an SSL connection to an `OpenWebNet` bus
+- Manages an **SSL connection** to an `OpenWebNet` bus
 - Opens **command** or **event sessions** with the bus
 - Calculates an **encrypted password** based on a received **nonce**
 - Sends **commands** to control lights, read states, temperatures (**`*who*what*where##`**)
