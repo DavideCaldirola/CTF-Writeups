@@ -3,21 +3,26 @@
 ```
 📁 CTF  
  ├── 📁 2025  
- │    ├── 📄 HTB - CTF Try Out  
- │    ├── 📄 HTB - CyberApocalypse_2025  
- │    ├── 📄 SnykCon2025  
- │    ├── 📄 SwampCTF_2025  
- │    ├── 📄 THM - Industrial Intrusion  
- │    ├── 📄 squ1rrel_2025  
- │    ├── 📄 L3akCTF 2025  
- │    ├── 📄 ENOWARS 9  
- │    ├── 📄 UIUCTF 2025  
- │    ├── 📄 WHY2025  
- │    ├── 📄 ScriptCTF 2025  
- │    ├── 📄 SnakeCTF 2025 Quals  
- │    └── 📄 Infobahn CTF'25  
+ │   ├── 📄 HTB - CTF Try Out  
+ │   ├── 📄 HTB - CyberApocalypse_2025  
+ │   ├── 📄 SnykCon2025  
+ │   ├── 📄 SwampCTF_2025  
+ │   ├── 📄 THM - Industrial Intrusion  
+ │   ├── 📄 squ1rrel_2025  
+ │   ├── 📄 L3akCTF 2025  
+ │   ├── 📄 ENOWARS 9  
+ │   ├── 📄 UIUCTF 2025  
+ │   ├── 📄 WHY2025  
+ │   ├── 📄 ScriptCTF 2025  
+ │   ├── 📄 SnakeCTF 2025 Quals  
+ │   └── 📄 Infobahn CTF'25  
  │
  └── 📁 2026
+     ├── 📄 SericsAcademyCTF
+     ├── 📄 TRX CTF 2026
+     ├── 📄 Fibonhack - From Dusk Till Down
+     ├── 📄 Bhackari CTF 2026
+     └── 📄 HTB - CyberApocalypse_2026: The Salt Crown
 ```
 
 [![GitHub Badge](https://img.shields.io/badge/-@DavideCaldirola-24292e?style=flat-square\&logo=github\&logoColor=white\&link=https://github.com/davidecaldirola)](https://github.com/davidecaldirola)
