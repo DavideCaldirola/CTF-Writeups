@@ -13,9 +13,9 @@ The interesting part of the challenge is entirely server-side, in how the applic
 
 The provided source included the full stack:
 
-- `index.ts` - Elysia backend (auth, session, game state, flag endpoint)
-- `App.jsx` / `main.jsx` - React game client
-- `nginx.conf`, `supervisord.conf`, `Dockerfile`, `docker-compose.yml` - deployment/runtime config
+- `index.ts`: Elysia backend (auth, session, game state, flag endpoint)
+- `App.jsx` / `main.jsx`: React game client
+- `nginx.conf`, `supervisord.conf`, `Dockerfile`, `docker-compose.yml`: deployment/runtime config
 
 Reviewing the infrastructure files first ruled out the easy wins: nginx only serves `/app/dist` as static content and reverse-proxies `/api/` to the Bun backend on `127.0.0.1:3000`; there's no directory listing, no exposed `.git`, and `/flag.txt` lives outside the web root, so it's not reachable directly. `supervisord.conf` just starts nginx and the Bun app — nothing leaks credentials there either.
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 {"ok":true,"flag":"HTB{w3lc0me_b3y0nd_th3_g4t3_2aa762f17ca5d2be14f452ada3011fbb}"}
 ```
 
-FLAG: **HTB{w3lc0me_b3y0nd_th3_g4t3_2aa762f17ca5d2be14f452ada3011fbb}**
+Flag: **HTB{w3lc0me_b3y0nd_th3_g4t3_2aa762f17ca5d2be14f452ada3011fbb}**
 
 ### Root cause & remediation
 
