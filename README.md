@@ -22,7 +22,8 @@
      ├── 📄 TRX CTF 2026
      ├── 📄 Fibonhack - From Dusk Till Down
      ├── 📄 Bhackari CTF 2026
-     └── 📄 HTB - CyberApocalypse_2026: The Salt Crown
+     ├── 📄 HTB - CyberApocalypse_2026: The Salt Crown
+     └── 📄 L3akCTF 2026 
 ```
 
 [![GitHub Badge](https://img.shields.io/badge/-@DavideCaldirola-24292e?style=flat-square\&logo=github\&logoColor=white\&link=https://github.com/davidecaldirola)](https://github.com/davidecaldirola)
