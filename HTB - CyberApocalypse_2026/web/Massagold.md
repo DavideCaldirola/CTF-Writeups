@@ -162,6 +162,6 @@ Flag: **HTB{m3554g3_1n_7h3_cu570dy_ch41n_ac89092b8decfe793333e451ceaa37b2}**
 ### Lessons Learned
 
 - `<%-` in EJS is as dangerous as `innerHTML` in JavaScript: never use it on unsanitized user input.
-- A CSP that whitelists external CDN/API domains can be bypassed if those domains host JSONP endpoints — even if the endpoint returns an error, the callback is still echoed into the response.
+- A CSP that whitelists external CDN/API domains can be bypassed if those domains host JSONP endpoints: even if the endpoint returns an error, the callback is still echoed into the response.
 - Admin bots that visit user-controlled URLs are a classic XSS escalation pattern: the bot's authentication becomes the attacker's weapon.
-- Google escapes `<` and `>` as `\u003c`/`\u003e` in JSONP callback parameters — this breaks arrow functions (`=>`), causing a silent syntax error. Always use traditional `function(){}` syntax in JSONP-based payloads.
+- Google escapes `<` and `>` as `\u003c`/`\u003e` in JSONP callback parameters: this breaks arrow functions (`=>`), causing a silent syntax error. Always use traditional `function(){}` syntax in JSONP-based payloads.
