@@ -17,7 +17,7 @@ The provided source included the full stack:
 - `App.jsx` / `main.jsx`: React game client
 - `nginx.conf`, `supervisord.conf`, `Dockerfile`, `docker-compose.yml`: deployment/runtime config
 
-Reviewing the infrastructure files first ruled out the easy wins: nginx only serves `/app/dist` as static content and reverse-proxies `/api/` to the Bun backend on `127.0.0.1:3000`; there's no directory listing, no exposed `.git`, and `/flag.txt` lives outside the web root, so it's not reachable directly. `supervisord.conf` just starts nginx and the Bun app — nothing leaks credentials there either.
+Reviewing the infrastructure files first ruled out the easy wins: nginx only serves `/app/dist` as static content and reverse-proxies `/api/` to the Bun backend on `127.0.0.1:3000`; there's no directory listing, no exposed `.git`, and `/flag.txt` lives outside the web root, so it's not reachable directly. `supervisord.conf` just starts nginx and the Bun app: nothing leaks credentials there either.
 
 That pointed the investigation squarely at `index.ts`.
 
@@ -62,7 +62,7 @@ This *declares* that the `session` cookie should be cryptographically signed. Ho
 })
 ```
 
-Without a schema-level binding, Elysia never actually verifies the HMAC signature on incoming requests — `session.value` reflects whatever raw cookie string the client sends. The signing config exists, but it isn't enforced. In practice, the entire authorization model collapses to:
+Without a schema-level binding, Elysia never actually verifies the HMAC signature on incoming requests: `session.value` reflects whatever raw cookie string the client sends. The signing config exists, but it isn't enforced. In practice, the entire authorization model collapses to:
 
 > *"If the client's `session` cookie equals the literal string `admin` or `inside`, grant access."*
 
@@ -70,7 +70,7 @@ There is no cryptographic barrier stopping a client from setting that string its
 
 ### Exploitation
 
-No account, no password, no browser interaction needed - just set the cookie by hand and call the protected endpoints directly.
+No account, no password, no browser interaction needed: just set the cookie by hand and call the protected endpoints directly.
 
 **1. Skip straight to the flag endpoint** by forging the `inside` state:
 
@@ -81,7 +81,7 @@ curl -i -X POST http://<target>:<port>/api/flag \
   -d '{}'
 ```
 
-That's it: this single request is enough to retrieve the flag. (For completeness, the intermediate step also works without ever logging in — forging `session=admin` and hitting `/api/gate/enter` transitions the forged cookie to `inside` exactly as if you'd logged in normally.)
+That's it: this single request is enough to retrieve the flag. (For completeness, the intermediate step also works without ever logging in: forging `session=admin` and hitting `/api/gate/enter` transitions the forged cookie to `inside` exactly as if you'd logged in normally.)
 
 ```bash
 curl -i -X POST http://<target>:<port>/api/gate/enter \
@@ -103,6 +103,6 @@ Flag: **HTB{w3lc0me_b3y0nd_th3_g4t3_2aa762f17ca5d2be14f452ada3011fbb}**
 
 ### Root cause & remediation
 
-- **Root cause:** cookie-signing configuration was declared at the application level but never actually applied to any route, so the "signed" session cookie was accepted unverified — effectively a broken authentication / access control flaw (equivalent to trusting a client-supplied role string).
+- **Root cause:** cookie-signing configuration was declared at the application level but never actually applied to any route, so the "signed" session cookie was accepted unverified - effectively a broken authentication / access control flaw (equivalent to trusting a client-supplied role string).
 - **Fix:** explicitly type the cookie in each route (or globally via a derived/guard) using Elysia's `t.Cookie(...)` schema with the `sign` option, so incoming cookies are actually verified against the HMAC secret and requests with an invalid/missing signature are rejected.
-- **Secondary hardening:** even with signing enforced, storing a static role name (`"admin"` / `"inside"`) as the entire session payload is weak design — prefer an opaque, random, per-session identifier tied server-side to a user record, so the security of the whole system doesn't rest on a single shared HMAC secret.
+- **Secondary hardening:** even with signing enforced, storing a static role name (`"admin"` / `"inside"`) as the entire session payload is weak design - prefer an opaque, random, per-session identifier tied server-side to a user record, so the security of the whole system doesn't rest on a single shared HMAC secret.
